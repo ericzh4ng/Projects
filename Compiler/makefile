@@ -5,12 +5,6 @@ CFLAGS=-g
 # Any include directories
 INCLUDE=
 
-dlang: ./d/*.d
-	$(CC) $(CFLAGS) ./d/*.d -of=./bin/compiler
-
-rust: ./rust/*.rs
-	rustc ./rust/*.rs -o ./bin/compiler
-
 cpp: ./cpp/*.cpp
 	g++ -g ./cpp/*.cpp -o ./bin/compiler
 
