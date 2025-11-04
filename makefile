@@ -1,10 +1,3 @@
-# Welcome to a 'makefile'
-# I have added some comments to help you understand what is going on.
-# 'makefile' is otherwise the typical name for a file that includes 'make rules'.
-# If you do not specify a particular target (e.g. make test), then the first
-# rule will execute by default.
-#
-#
 # The compiler that we will be using
 CC=gcc
 # Any C program flags
