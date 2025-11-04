@@ -6,7 +6,7 @@ CFLAGS=-g -Wall -Werror
 INCLUDE=./include
 
 # Execute one test at a time in a separate process.
-# This will allow your program to move forard, even if there is a segfault.
+# This will allow the program to move forard, even if there is a segfault.
 all: ./*.c
 	$(CC) $(CFLAGS) ./*.c -I$(INCLUDE) -o ./bin/shell
 	./bin/shell
