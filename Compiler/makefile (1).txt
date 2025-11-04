@@ -1,0 +1,43 @@
+# Default compiler
+CC=dmd
+# Any default flags
+CFLAGS=-g
+# Any include directories
+INCLUDE=
+
+dlang: ./d/*.d
+	$(CC) $(CFLAGS) ./d/*.d -of=./bin/compiler
+
+rust: ./rust/*.rs
+	rustc ./rust/*.rs -o ./bin/compiler
+
+cpp: ./cpp/*.cpp
+	g++ -g ./cpp/*.cpp -o ./bin/compiler
+
+# transpiles basic script to C target language
+# Uses gcc to compile generated C to binary
+compileall: ./bin/compiler
+	./bin/compiler ./scripts/1.basic
+	./bin/compiler ./scripts/2.basic
+	./bin/compiler ./scripts/3.basic
+	./bin/compiler ./scripts/4.basic
+	./bin/compiler ./scripts/5.basic
+	./bin/compiler ./scripts/6.basic
+	./bin/compiler ./scripts/7.basic
+	./bin/compiler ./scripts/8.basic
+	./bin/compiler ./scripts/9.basic
+
+runall:
+	gcc ./scripts/1.basic.c -o ./bin/1basic && ./bin/1basic
+	gcc ./scripts/2.basic.c -o ./bin/2basic && ./bin/2basic
+	gcc ./scripts/3.basic.c -o ./bin/3basic && ./bin/3basic
+	gcc ./scripts/4.basic.c -o ./bin/4basic && ./bin/4basic
+	gcc ./scripts/5.basic.c -o ./bin/5basic && ./bin/5basic
+	gcc ./scripts/6.basic.c -o ./bin/6basic && ./bin/6basic
+	gcc ./scripts/7.basic.c -o ./bin/7basic && ./bin/7basic
+	gcc ./scripts/8.basic.c -o ./bin/8basic && ./bin/8basic
+	gcc ./scripts/9.basic.c -o ./bin/9basic && ./bin/9basic
+
+# Removes the binary files automatically
+clean:
+	rm ./bin/compiler ./bin/compiler.o ./bin/1basic ./bin/2basic ./bin/3basic ./bin/4basic ./bin/5basic ./bin/6basic ./bin/7basic ./bin/8basic ./bin/9basic ./scripts/1.basic.c ./scripts/2.basic.c ./scripts/3.basic.c ./scripts/4.basic.c ./scripts/5.basic.c ./scripts/6.basic.c ./scripts/7.basic.c ./scripts/8.basic.c ./scripts/9.basic.c
